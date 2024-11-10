@@ -1,0 +1,23 @@
+<div class="ajouter-actualite-container">
+  <h2>Ajouter une Nouvelle Actualité</h2>
+
+  <form (ngSubmit)="onSubmit()" #actualiteForm="ngForm">
+    <div class="form-group">
+      <label for="title">sujet</label>
+      <input type="text" id="title" class="form-control" required [(ngModel)]="actualite.sujet" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="content">date</label>
+      <input id="content" class="form-control" required [(ngModel)]="actualite.date" type="date" name="content"/>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" [disabled]="actualiteForm.invalid" class="btn btn-primary">Ajouter l'actualité</button>
+    </div>
+  </form>
+
+  <div *ngIf="message" class="alert alert-info">
+    {{ message }}
+  </div>
+</div>
